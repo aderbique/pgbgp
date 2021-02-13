@@ -12,6 +12,9 @@ Internet security at the Border Gateway Protocol (BGP) level is a tug-of-war be-
 
 ## Repository Structure
 
+## Test Environment
+For the purposes of creating a test environment to run our software, we are using a VMware server. Console access can be accessed by navigating to [VMWARE VSPHERE](https://max300.skizzerz.net/). There is an IP whitelist, so please contact Ryan Schmidt for access.
+
 ### Reports
 Here there is the proposal document, midterm report, and final report for the project.
 
