@@ -3,7 +3,9 @@
 - include_tasks:
     file: router.yml
   when: node_id is defined
-  tags: router
+  tags:
+    - router
+    - brrouting
 
 - include_tasks:
     file: terminal.yml
