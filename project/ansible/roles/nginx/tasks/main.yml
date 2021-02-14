@@ -27,7 +27,7 @@
 - name: Copy over index file
   copy:
     src: files/static-site
-    dest: /home/ubuntu/static-site
+    dest: /var/www
 
 - name: restart nginx
   service:
