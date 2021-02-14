@@ -5,8 +5,11 @@ Ansible is a configuration management
 
 ### General Usage  
 ```
+# Login to jump server
+ssh rd.skizzerz.net -p 2220
+
 # Switch user
-sudo su ansible
+sudo -u ansible -i
 
 # Source virtual environment
 source /home/ansible/venv/bin/activate
