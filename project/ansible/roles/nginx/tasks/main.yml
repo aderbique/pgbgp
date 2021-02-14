@@ -1,0 +1,34 @@
+---
+
+- name: ensure nginx is at the latest version
+      apt: name=nginx state=latest
+
+- name: start nginx
+  service:
+      name: nginx
+      state: started
+
+- name: Copy over config file
+  file:
+    src: files/static_site.cfg
+    dest: /etc/nginx/sites-available/static_site.cfg
+  become: yes
+
+- name: Create symlink
+  file:
+    src: /etc/nginx/sites-available/static_site.cfg
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+  become: yes
+
+
+- name: Copy over index file
+  file:
+    src: files/static-site
+    dest: /home/ubuntu/static-site
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+  become: yes
