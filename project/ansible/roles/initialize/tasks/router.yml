@@ -17,7 +17,7 @@
 - name: Copy over BR Routing config file
   ansible.builtin.template:
     src: templates/bgpd.conf.j2
-    dest: /etc/frr/bgpd.conf
+    dest: /var/snap/frr/current/bgpd.conf
   become: yes 
   tags:
     - router
