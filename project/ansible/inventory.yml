@@ -1,34 +1,33 @@
-#[all]
-#routers
-#censors
-#terminals
-
-[routers]
-192.168.24.12
-192.168.24.14
-192.168.24.15
-192.168.24.16
-192.168.24.17
-192.168.24.20
-192.168.24.21
-192.168.24.22
-192.168.24.23
-
-[routers:vars]
-ansible_user=ubuntu
-
 [censors]
-192.168.24.13
-192.168.24.18
-192.168.24.19
+192.168.24.13 node_id=13
+192.168.24.18 node_id=18
+192.168.24.19 node_id=19
 
 [censors:vars]
 ansible_user=ubuntu   
 
+[uncensors]
+192.168.24.12 node_id=12
+192.168.24.14 node_id=14
+192.168.24.15 node_id=15
+192.168.24.16 node_id=16
+192.168.24.17 node_id=17
+192.168.24.20 node_id=20
+192.168.24.21 node_id=21
+192.168.24.22 node_id=22
+192.168.24.23 node_id=23
+
+[uncensors:vars]
+ansible_user=ubuntu
+
+[routers:children]
+censors
+uncensors
+
 [terminals]
-192.168.24.121
-192.168.24.131
-192.168.24.211
+192.168.24.121 ip=10.0.12.100/24 gw=10.0.21.1
+192.168.24.131 ip=10.0.13.100/24 gw=10.0.13.1
+192.168.24.211 ip=10.0.21.100/24 gw=10.0.12.1
 
 [terminals:vars]
 ansible_user=ubuntu   
