@@ -1,0 +1,7 @@
+---
+
+- name: Reboot all machines
+  hosts: all
+  tasks:
+    - reboot:
+      become: yes
