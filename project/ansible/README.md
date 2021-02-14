@@ -5,6 +5,9 @@ Ansible is a configuration management
 
 ### General Usage  
 ```
+# Login to jump server
+ssh rd.skizzerz.net -p 2220
+
 # Switch user
 sudo su ansible
 
