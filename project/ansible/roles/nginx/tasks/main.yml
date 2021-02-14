@@ -26,8 +26,9 @@
 
 - name: Copy over index file
   copy:
-    src: files/static-site
+    src: files/static-site/
     dest: /var/www
+  become: yes
 
 - name: restart nginx
   service:

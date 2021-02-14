@@ -1,0 +1,6 @@
+---
+
+- name: Deploy nginx to terminals
+  hosts: terminals
+  roles:
+    - nginx
