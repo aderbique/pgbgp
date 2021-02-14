@@ -3,14 +3,37 @@
 ## Overview
 Ansible is a configuration management
 
-### General Usage
-Be sure to source the enviornment!  
+### General Usage  
 ```
+# Switch user
+sudo su ansible
+
+# Source virtual environment
+source /home/ansible/venv/bin/activate
+
+# Navigate to ansible directory
+cd /home/ansible/pgbgp/project/ansible
+
+#Run the playbook
 ansible playbook playbook.yml -v
+
+#Or optionally a specific command. In this case, pinging just the webservers. Check out inventory.yml for various groups
+ansible routers -m ping
 ```
 ## Playbooks
+
 ### initialize.yml
+Configures infrastucture.
+
+### simulate.yml
+Runs the network tests and simulations. 
 
 ### update.yml
+Redeploys similar to initialize.yml. May not need
 
 ### destroy.yml
+Tears down infrastructure, removing configurations
+
+
+### stop.yml
+Stops infrastucture. Webservers, tests, etc.
