@@ -1,7 +1,9 @@
 ---
 
 - name: ensure nginx is at the latest version
-      apt: name=nginx state=latest
+  apt:
+    name: nginx
+    state: latest
 
 - name: start nginx
   service:
@@ -9,7 +11,7 @@
       state: started
 
 - name: Copy over config file
-  file:
+  copy:
     src: files/static_site.cfg
     dest: /etc/nginx/sites-available/static_site.cfg
   become: yes
@@ -23,7 +25,7 @@
 
 
 - name: Copy over index file
-  file:
+  copy:
     src: files/static-site
     dest: /home/ubuntu/static-site
 

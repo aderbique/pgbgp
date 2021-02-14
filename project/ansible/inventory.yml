@@ -1,9 +1,7 @@
----
-
-[all]
-routers
-censors
-terminals
+#[all]
+#routers
+#censors
+#terminals
 
 [routers]
 192.168.24.12
@@ -16,13 +14,21 @@ terminals
 192.168.24.22
 192.168.24.23
 
+[routers:vars]
+ansible_user=ubuntu
+
 [censors]
 192.168.24.13
 192.168.24.18
 192.168.24.19
+
+[censors:vars]
+ansible_user=ubuntu   
 
 [terminals]
 192.168.24.121
 192.168.24.131
 192.168.24.211
 
+[terminals:vars]
+ansible_user=ubuntu   
