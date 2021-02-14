@@ -26,7 +26,10 @@ ansible routers -m ping
 ## Playbooks
 
 ### initialize.yml
-Configures infrastucture.
+Configures infrastucture. Run this after a restart to deploy and configure the test network
+
+### reboot.yml
+Restart all the VMs. Reinitialization will be required after this playbook is executed.
 
 ### simulate.yml
 Runs the network tests and simulations. 
