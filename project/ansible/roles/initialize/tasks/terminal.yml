@@ -1,7 +1,7 @@
 ---
 
 - name: Set IP Address and Gateway for terminal
-  command: "ip addr add {{ ip }} dev ens160"
+  command: "ip addr add {{ ip }}/24 dev ens160"
   when: ip is defined
   become: yes
   ignore_errors: yes
