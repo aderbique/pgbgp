@@ -12,6 +12,7 @@
   loop: "{{ mapping[node_id] }}"
   when: node_id is defined
   become: yes
+  ignore_errors: yes
   tags: router
 
 - name: Ensure appropriate packages are installed

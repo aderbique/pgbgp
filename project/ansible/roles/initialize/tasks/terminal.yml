@@ -7,7 +7,7 @@
   ignore_errors: yes
 
 - name: Set GW for terminal
-  command: "ip route add 10.0.0.0/8 dev ens160 via {{ gw }} src {{ ip }}"
+  command: "ip route add 10.0.0.0/8 dev ens160 src {{ ip }} via {{ gw }}"
   when: ip is defined
   become: yes
   ignore_errors: yes
