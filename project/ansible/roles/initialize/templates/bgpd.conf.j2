@@ -3,7 +3,9 @@ route-map ALLOW-ALL permit 100
 
 router bgp 645{{ node_id }}
   bgp router-id 10.0.{{ node_id }}.1
+  neighbor peer peer-group
   neighbor peer route-map ALLOW-ALL in
+  neighbor peer route-map ALLOW-ALL out
   neighbor peer capability dynamic
 {% for neighbor in mapping[node_id] %}
   neighbor 10.0.{{ neighbor }}.1 peer-group peer
