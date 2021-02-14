@@ -1,0 +1,13 @@
+---
+
+- name: Set IP Address and Gateway for terminal
+  command: "ip a add {{ ip }} dev ens160"
+  when: ip is defined
+  become: yes
+  ignore_errors: yes
+
+- name: Set GW for terminal
+  command: "ip route add 10.0.0.0/8 dev ens160"
+  when: ip is defined
+  become: yes
+  ignore_errors: yes

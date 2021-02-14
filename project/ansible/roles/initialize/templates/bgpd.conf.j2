@@ -1,0 +1,12 @@
+! AS 64512 - 65535 are private ASes, and we can map AS 645xx to 10.0.xx.1/24
+router bgp 645{{ node_id }}
+  bgp router-id 10.0.{{ node_id }}.1
+  neighbor peer capability dynamic
+  {% for neighbor in mapping[node_id] %}
+  neighbor 10.0.{{ neighbor }}.1 peer-group peer
+  neighbor 10.0.{{ neighbor }}.1 remote-as 645{{ neighbor }}
+  neighbor 10.0.{{ neighbor }}.1 description AS 645{{ neighbor }}
+  {% endfor %}
+  address-family ipv4 unicast
+    network 10.0.{{ node_id }}.0/24
+  end-address-famil

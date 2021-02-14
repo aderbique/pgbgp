@@ -1,0 +1,22 @@
+---
+
+- name: Set IP Address for router
+  command: "ip a add 10.0.{{ node_id }}.1/24 dev ens160"
+  when: node_id is defined
+  become: yes
+  ignore_errors: yes
+  tags: router
+
+- name: Ensure appropriate packages are installed
+  community.general.snap:
+    name: frr
+    state: present
+  become: yes
+  tags: router
+
+- name: Copy over BR Routing config file
+  ansible.builtin.template:
+    src: templates/bgpd.conf.j2
+    dest: /etc/frr/bgpd.conf
+  become: yes 
+  tags: router
