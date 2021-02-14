@@ -1,10 +1,17 @@
 ---
 
 - name: Set IP Address for router
-  command: "ip a add 10.0.{{ node_id }}.1/24 dev ens160"
+  command: "ip addr add 10.0.{{ node_id }}.1/24 dev ens160"
   when: node_id is defined
   become: yes
   ignore_errors: yes
+  tags: router
+
+- name: Add static routes to next hops
+  command: "ip route add 10.0.{{ item }}.1/32 dev ens160 scope link src 10.0.{{ node_id }}.1"
+  loop: "{{ mapping[node_id] }}"
+  when: node_id is defined
+  become: yes
   tags: router
 
 - name: Ensure appropriate packages are installed
@@ -14,20 +21,20 @@
   become: yes
   tags: router
 
-- name: Copy over BR Routing config file
+- name: Copy over FR Routing config file
   ansible.builtin.template:
     src: templates/bgpd.conf.j2
     dest: /var/snap/frr/current/bgpd.conf
   become: yes 
   tags:
     - router
-    - brrouting
+    - frrouting
 
-- name: Restart BR Routing
+- name: Restart FR Routing
   systemd:
     name: snap.frr.bgpd
     state: restarted
   become: yes
   tags:
     - router
-    - brrouting
+    - frrouting

@@ -5,13 +5,9 @@
   when: node_id is defined
   tags:
     - router
-    - brrouting
+    - frrouting
 
 - include_tasks:
     file: terminal.yml
   when: ip is defined
   tags: terminal
-
-    #- name: Restart network
-  #command: systemctl restart NetworkManager.service
-  #  become: yes
