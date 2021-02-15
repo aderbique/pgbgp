@@ -11,3 +11,7 @@
     file: terminal.yml
   when: ip is defined
   tags: terminal
+
+
+- name: Enable packet forwarding
+  command: "sudo sysctl -w net.ipv4.ip_forward=1"
