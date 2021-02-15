@@ -7,14 +7,6 @@
   ignore_errors: yes
   tags: router
 
-- name: Add static routes to next hops
-  command: "ip route add 10.0.{{ item }}.1/32 dev ens160 scope link src 10.0.{{ node_id }}.1"
-  loop: "{{ mapping[node_id] }}"
-  when: node_id is defined
-  become: yes
-  ignore_errors: yes
-  tags: router
-
 - name: Ensure appropriate packages are installed
   community.general.snap:
     name: frr
