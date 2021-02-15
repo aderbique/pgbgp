@@ -99,6 +99,6 @@ peerips:
   23: [10.1.23.1, 10.1.24.2]
 
 poisontargets:
-  21:
-    - AS: 18
-    - IP: 10.1.21.2
+  - source_ID: 21
+    target_ID: 18
+    target_IP: 10.1.21.2
