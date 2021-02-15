@@ -1,0 +1,6 @@
+---
+
+- name: Initialize all servers
+  hosts: all
+  roles:
+    - destroy
