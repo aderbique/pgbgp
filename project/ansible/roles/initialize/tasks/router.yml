@@ -7,6 +7,14 @@
   ignore_errors: yes
   tags: router
 
+- name: Set internal subnets for router
+  command: "ip addr add {{ item }}/24 dev ens160"
+  loop: "{{ peerips[node_id] }}"
+  when: node_id is defined
+  become: yes
+  ignore_errors: yes
+  tags: router
+
 - name: Ensure appropriate packages are installed
   community.general.snap:
     name: frr
