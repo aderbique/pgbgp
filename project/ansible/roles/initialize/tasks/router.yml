@@ -22,6 +22,12 @@
   become: yes
   tags: router
 
+- name: Ensure FRR can do stuff
+  command: "snap connect frr:network-control core:network-control"
+  become: yes
+  ignore_errors: yes
+  tags: router
+
 - name: Copy over FR Routing config file
   ansible.builtin.template:
     src: templates/bgpd.conf.j2
