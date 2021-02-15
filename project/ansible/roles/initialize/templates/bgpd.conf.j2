@@ -3,7 +3,7 @@ route-map ALLOW-ALL permit 100
 {% for item in poisontargets %}
 {% if item.source_ID == node_id %}
 route-map testpoison
-	set as-path prepend 645{{ item.target_AS }}
+	set as-path prepend 645{{ item.target_ID }}
 {% endif %}
 {% endfor %}
 
