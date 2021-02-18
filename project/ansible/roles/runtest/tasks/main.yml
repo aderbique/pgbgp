@@ -1,0 +1,22 @@
+---
+
+- name: Collect Route Table Information
+  command: "ip route"
+  register: ip_route
+
+- name: See what's available
+  debug:
+    msg: "{{ ansible_all_ipv4_addresses[1] }}"
+
+- name: Create artifacts directory on host
+  file:
+    state: directory
+    path: ~/pgbgp/project/artifacts
+  delegate_to: localhost
+
+- name: Copy using inline content
+  ansible.builtin.copy:
+    content: "{{ ip_route.stdout }}"
+    dest: "~/pgbgp/project/artifacts/{{ ansible_all_ipv4_addresses[1] }}.rt"
+  delegate_to: localhost
+

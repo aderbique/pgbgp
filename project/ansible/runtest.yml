@@ -1,0 +1,7 @@
+---
+
+- name: Run PGBGP Tests
+  hosts: all
+  roles:
+    - runtest
+
