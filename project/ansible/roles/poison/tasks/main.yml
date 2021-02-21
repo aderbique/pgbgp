@@ -1,9 +1,9 @@
 ---
-tasks:
-  - name: copy poisoning script
-  ansible.builtin.template:
-    src: scripts/pathpoison.py
-    dest: ./opt/pathpoison.py
 
-  - name: execute poisoning script
-  command: "/usr/bin/python3 /opt/pathpoison.py {{ source }} {{ target }}"
+- name: copy poisoning script
+ansible.builtin.template:
+  src: scripts/pathpoison.py
+  dest: ./opt/pathpoison.py
+
+- name: execute poisoning script
+command: "/usr/bin/python3 /opt/pathpoison.py {{ source }} {{ target }}"
