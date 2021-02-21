@@ -43,3 +43,10 @@ Tears down infrastructure, removing configurations
 
 ### stop.yml
 Stops infrastucture. Webservers, tests, etc.
+
+### poison.yml
+Conduct path poisoning. Limit to a single host. Provide source ASN and target
+ASN as extra variables. Here is an example poisoning:
+
+ansible-playbook poison.yml --limit 192.168.24.21 --extra-vars "source=64521 target=64522"
+
