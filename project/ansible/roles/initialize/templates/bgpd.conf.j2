@@ -1,11 +1,5 @@
 ! AS 64512 - 65535 are private ASes, and we can map AS 645xx to 10.0.xx.1/24
 route-map ALLOW-ALL permit 100
-{% for item in poisontargets %}
-{% if item.source_ID == node_id %}
-route-map testpoison
-	set as-path prepend 645{{ item.target_ID }}
-{% endif %}
-{% endfor %}
 
 router bgp 645{{ node_id }}
   bgp router-id 10.0.{{ node_id }}.1
@@ -17,10 +11,5 @@ router bgp 645{{ node_id }}
   neighbor {{ item.IP }} peer-group peer
   neighbor {{ item.IP }} remote-as 645{{ item.AS }}
   neighbor {{ item.IP }} description AS 645{{ item.AS }}
-{% endfor %}
-{% for item in poisontargets %}
-{% if item.source_ID == node_id %}
-	neighbor {{ item.target_IP }} route-map testpoison out
-{% endif %}
 {% endfor %}
   network 10.0.{{ node_id }}.0/24
