@@ -6,4 +6,4 @@
   dest: ./opt/pathpoison.py
 
 - name: execute poisoning script
-command: "/usr/bin/python3 /opt/pathpoison.py {{ source }} {{ target }}"
+  command: "/usr/bin/python3 /opt/pathpoison.py {{ source }} {{ target }}"
