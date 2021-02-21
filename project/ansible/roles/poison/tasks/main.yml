@@ -1,7 +1,9 @@
 ---
+tasks:
+  - name: copy poisoning script
+  ansible.builtin.template:
+    src: scripts/pathpoison.py
+    dest: ./opt/pathpoison.py
 
-- name: run path poisoning script on node
-  script: "/home/ansible/pgbgp/project/ansible/pathpoison.py"
-  args:
-    cmd: "/home/ansible/pgbgp/project/ansible/pathpoison.py {{ source }} {{ target }}"
-
+  - name: execute poisoning script
+  command: "/usr/bin/python3 /opt/pathpoison.py {{ source }} {{ target }}"
