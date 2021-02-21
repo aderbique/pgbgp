@@ -1,7 +1,7 @@
 ---
 
 - name: copy poisoning script
-ansible.builtin.template:
+  ansible.builtin.template:
   src: scripts/pathpoison.py
   dest: ./opt/pathpoison.py
 
