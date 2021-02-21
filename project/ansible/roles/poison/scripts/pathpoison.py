@@ -1,4 +1,5 @@
 import argparse
+import os
 
 parser = argparse.ArgumentParser(description="Change Router Configuration to Poison Target")
 parser.add_argument("sourceASN", type=int, help="The ASN conducting the poisoning")
@@ -51,6 +52,7 @@ cmdstring += "-c \"set as-path prepend {}\" ".format(targetASN)
 cmdstring += "-c \"do write memory\""
 
 print("Running: {}".format(cmdstring))
+os.system(cmdstring)
 
 try:
 	cmdstring = "sudo frr.vtysh -d bgpd -c \"configure terminal\" "
@@ -59,5 +61,6 @@ try:
 	cmdstring += "-c \"do write memory\""
 
 	print("Running: {}".format(cmdstring))
+	os.system(cmdstring)
 except:
 	print("ERROR: Bad neighbor for poisoning")
