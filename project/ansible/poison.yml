@@ -6,4 +6,3 @@
       script: "/home/ansible/pgbgp/project/ansible/pathpoison.py"
       args:
         cmd: "/home/ansible/pgbgp/project/ansible/pathpoison.py {{ source }} {{ target }}"
-        executable: /usr/bin/python3
