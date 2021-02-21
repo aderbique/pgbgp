@@ -47,7 +47,7 @@ sourceASN = args.sourceASN
 targetASN = args.targetASN
 
 cmdstring = "sudo frr.vtysh -d bgpd -c \"configure terminal\" "
-cmdstring += "-c \"route-map testpoison permin 90\" "
+cmdstring += "-c \"route-map testpoison permit 90\" "
 cmdstring += "-c \"set as-path prepend {}\" ".format(targetASN)
 cmdstring += "-c \"do write memory\""
 
