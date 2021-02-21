@@ -3,7 +3,7 @@
 - name: copy poisoning script
   ansible.builtin.template:
     src: scripts/pathpoison.py
-    dest: ./opt/pathpoison.py
+    dest: /opt/pathpoison.py
   become: yes
 
 - name: execute poisoning script
