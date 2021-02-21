@@ -1,0 +1,9 @@
+---
+- vars:
+  sourceASN: "{{ source }}"
+  targetASN: "{{ target }}"
+- name: run path poisoning script on node
+  script: "/home/ansible/pgbgp/project/ansible/pathpoison.py"
+  args:
+    cmd: "/home/ansible/pgbgp/project/ansible/pathpoison.py {{ sourceASN }} {{ targetASN }}"
+    executable: /usr/bin/python3
