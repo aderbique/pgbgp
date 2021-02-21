@@ -1,0 +1,7 @@
+---
+
+- name: run path poisoning script on node
+  script: "/home/ansible/pgbgp/project/ansible/pathpoison.py"
+  args:
+    cmd: "/home/ansible/pgbgp/project/ansible/pathpoison.py {{ source }} {{ target }}"
+
