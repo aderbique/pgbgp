@@ -1,8 +1,16 @@
 ---
 
-- name: Collect Route Table Information
-  command: "ip route"
-  register: ip_route
+- name: Collect Traceroute Information to host one
+  command: "traceroute 10.0.12.100"
+  register: tr1
+
+- name: Collect Traceroute Information to host one
+  command: "traceroute 10.0.13.100"
+  register: tr2
+
+- name: Collect Traceroute Information to host one
+  command: "traceroute 10.0.21.100"
+  register: tr3
 
 - name: See what's available
   debug:
@@ -14,9 +22,20 @@
     path: ~/pgbgp/project/artifacts
   delegate_to: localhost
 
-- name: Copy using inline content
+- name: Copy using inline content 1
   ansible.builtin.copy:
-    content: "{{ ip_route.stdout }}"
-    dest: "~/pgbgp/project/artifacts/{{ ansible_all_ipv4_addresses[1] }}.rt"
+    content: "{{ tr1.stdout }}"
+    dest: "~/pgbgp/project/artifacts/{{ ansible_all_ipv4_addresses[1] }}_10.0.12.100.tr"
   delegate_to: localhost
 
+- name: Copy using inline content 2
+  ansible.builtin.copy:
+    content: "{{ tr2.stdout }}"
+    dest: "~/pgbgp/project/artifacts/{{ ansible_all_ipv4_addresses[1] }}_10.0.13.100.tr"
+  delegate_to: localhost
+
+- name: Copy using inline content 3
+  ansible.builtin.copy:
+    content: "{{ tr3.stdout }}"
+    dest: "~/pgbgp/project/artifacts/{{ ansible_all_ipv4_addresses[1] }}_10.0.21.100.tr"
+  delegate_to: localhost

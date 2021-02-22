@@ -1,7 +1,7 @@
 ---
 
-- name: Run PGBGP Tests
-  hosts: all
+- name: Collect Traceroute Data
+  hosts: terminals
   roles:
     - runtest
 
