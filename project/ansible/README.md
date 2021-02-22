@@ -31,12 +31,6 @@ Configures infrastucture. Run this after a restart to deploy and configure the t
 ### reboot.yml
 Restart all the VMs. Reinitialization will be required after this playbook is executed.
 
-### simulate.yml
-Runs the network tests and simulations. 
-
-### update.yml
-Redeploys similar to initialize.yml. May not need
-
 ### destroy.yml
 Tears down infrastructure, removing configurations
 
@@ -52,3 +46,6 @@ ASN as extra variables. Here is an example poisoning:
 ansible-playbook poison.yml --limit 192.168.24.21 --extra-vars "source=64521 target=64522"
 ```
 
+
+### expiriments.yml
+This is a series of expiriments, consisting of poisoning nodes in sequential order from 18 to 19 to 13 and dumping traceroutes into the artifacts directory.
