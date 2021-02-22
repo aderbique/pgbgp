@@ -19,15 +19,17 @@ For the purposes of creating a test environment to run our software, we are usin
 ## Repository Structure
 
 ### Project
+In this directory, there are two subsirectories. One is the `ansible` directory which contains 
 
 #### Ansible
-
+This directory contains the majority of project code. It has its own dedicated README file which can be found at [project/ansible/README.md](project/ansible/README.md). 
 #### Artifacts
 
 ### Expiriments
+The expiriments directory contains data analysis of outputed artifacts from ansible's [project/artifacts](project/artifacts) directory. This contains a dataAnalysis Jupyter notebook which measures packets intercepted, packes lost, and shows default routing details.
 
 ### Reports
-Here, there is the proposal document, midterm report, and final report for the project.
+Here, there is the proposal document, midterm report, and final report for the project. Addtionally, the project presentation powerpoint is stored here.
 
 #### Project Documents
 - [Proposal Proposal](reports/project_proposal.pdf)
