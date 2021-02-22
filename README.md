@@ -28,6 +28,8 @@ For the purposes of creating a test environment to run our software, we are usin
 
 ### Reports
 Here, there is the proposal document, midterm report, and final report for the project.
+
+#### Project Documents
 - [Proposal Proposal](reports/project_proposal.pdf)
 - [Midterm Report](reports/midterm_report.pdf)
 - [Final Report](reports/final_report.pdf)
