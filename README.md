@@ -39,8 +39,8 @@ Here, there is the proposal document, midterm report, and final report for the p
 - [Proposal Proposal](reports/project_proposal.pdf)
 - [Midterm Report](reports/midterm_report.pdf)
 - [Final Report](reports/final_report.pdf)
-- [Powerpoint Presentation Document](reports/presentation.pptx)
-- [Youtube Demo Video](link to youtube video)
+- [Powerpoint Presentation Document](reports/Presentation.pptx)
+- [Youtube Demo Video](https://youtu.be/PmgrjoqBPKg)
 ### Feedback
 This directory contains reports with comments written by the professor for each of the reports submitted.
 
