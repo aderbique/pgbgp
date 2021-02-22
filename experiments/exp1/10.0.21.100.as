@@ -1,1 +1,0 @@
-show ip bgp | sudo frr.vtysh

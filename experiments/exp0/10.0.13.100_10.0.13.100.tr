@@ -1,0 +1,2 @@
+traceroute to 10.0.13.100 (10.0.13.100), 30 hops max, 60 byte packets
+ 1  leaf13-1 (10.0.13.100)  0.045 ms  0.008 ms  0.007 ms
