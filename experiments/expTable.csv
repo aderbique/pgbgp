@@ -1,3 +1,5 @@
-expNum,desc,poisoningASNs,targetASNs
-0,"default routing",,
-1,"proof of concept single ASN poisoning",64521,64522
+expNum,desc,poisoningASNs,targetASNs,censorEncounters,DroppedPaths
+0,"No Poisoning",[],[],6,0
+1,"Single Poisoning",[64521],[64518],6,0
+2,"Single Poisoning",[64522],[64519],6,0
+3,"Double Poisoning",[64521,64522],[64518,64519],4,0
