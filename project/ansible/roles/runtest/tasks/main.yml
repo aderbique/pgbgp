@@ -19,23 +19,23 @@
 - name: Create artifacts directory on host
   file:
     state: directory
-    path: ~/pgbgp/project/artifacts
+    path: "~/pgbgp/project/artifacts/exp{{ expiriment_number }}"
   delegate_to: localhost
 
 - name: Copy using inline content 1
   ansible.builtin.copy:
     content: "{{ tr1.stdout }}"
-    dest: "~/pgbgp/project/artifacts/{{ ansible_all_ipv4_addresses[1] }}_10.0.12.100.tr"
+    dest: "~/pgbgp/project/artifacts/exp{{ expiriment_number }}/{{ ansible_all_ipv4_addresses[1] }}_10.0.12.100.tr"
   delegate_to: localhost
 
 - name: Copy using inline content 2
   ansible.builtin.copy:
     content: "{{ tr2.stdout }}"
-    dest: "~/pgbgp/project/artifacts/{{ ansible_all_ipv4_addresses[1] }}_10.0.13.100.tr"
+    dest: "~/pgbgp/project/artifacts/exp{{ expiriment_number }}/{{ ansible_all_ipv4_addresses[1] }}_10.0.13.100.tr"
   delegate_to: localhost
 
 - name: Copy using inline content 3
   ansible.builtin.copy:
     content: "{{ tr3.stdout }}"
-    dest: "~/pgbgp/project/artifacts/{{ ansible_all_ipv4_addresses[1] }}_10.0.21.100.tr"
+    dest: "~/pgbgp/project/artifacts/exp{{ expiriment_number }}/{{ ansible_all_ipv4_addresses[1] }}_10.0.21.100.tr"
   delegate_to: localhost

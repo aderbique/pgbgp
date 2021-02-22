@@ -1,0 +1,82 @@
+---
+
+#########################################
+
+########### Expiriment Zero ##############
+## Capture Traceroutes with no poisoning 
+
+#########################################
+
+- name: Collect Traceroute Data
+  hosts: terminals
+  roles:
+    - runtest
+  vars:
+    expiriment_number: 0
+
+#########################################
+
+########## Expiriment One ###############
+## Capture Traceroutes with poisoning
+## Performed on Node 18
+#########################################
+
+- name: Poison node 18
+  hosts: 192.168.24.21
+  roles:
+    - poison
+  vars:
+    source: 64521
+    target: 64518
+
+- name: Collect Traceroute Data
+  hosts: terminals
+  roles:
+    - runtest
+  vars:
+    expiriment_number: 1  
+
+#########################################
+
+############ Expiriment Two ##############
+## Capture Traceroutes with poisoning
+## to nodes 18 and 19
+#########################################
+
+- name: Poison node 19
+  hosts: 192.168.24.22
+  roles:
+    - poison
+  vars:
+    source: 64522
+    target: 64519                                                                                                                                                                                                                            
+
+- name: Collect Traceroute Data
+  hosts: terminals
+  roles:
+    - runtest
+  vars:
+    expiriment_number: 2 
+
+#########################################
+
+######### Expiriment Three ##############
+## Capture Traceroutes with poisoning
+## to node 13
+
+#########################################
+
+- name: Poison node 13
+  hosts: 192.168.24.16
+  roles:
+    - poison
+  vars:
+    source: 64516
+    target: 64513
+
+- name: Collect Traceroute Data
+  hosts: terminals
+  roles:
+    - runtest
+  vars:
+    expiriment_number: 3
